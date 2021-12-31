@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-services.AddPokemonClient(httpClient =>
+services.AddDadJokesApiClient(httpClient =>
 {
     var host = configuration["DadJokesClient:host"];
     httpClient.BaseAddress = new(host);

@@ -15,7 +15,7 @@ var logger = ConfigureLogger();
 var services = new ServiceCollection();
 services.AddSingleton<ILoggerFactory>(services => new SerilogLoggerFactory());
 
-services.AddPokemonClient(httpClient =>
+services.AddDadJokesApiClient(httpClient =>
 {
     httpClient.BaseAddress = new(host);
     httpClient.AddDadJokesHeaders(host, apiKey);

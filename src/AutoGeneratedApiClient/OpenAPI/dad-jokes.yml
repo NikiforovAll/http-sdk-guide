@@ -5,25 +5,72 @@ info:
 servers:
   - url: https://dad-jokes.p.rapidapi.com
 paths:
-  /joke:
+  /joke/{id}:
     get:
       description: ''
-      parameters: [
-      ]
+      operationId: 'GetJokeById'
+      parameters:
+      - name: "id"
+        in: "path"
+        description: ""
+        required: true
+        schema:
+          type: "string"
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Joke"
   /random/joke:
     get:
       description: ''
+      operationId: 'GetRandomJoke'
       parameters: []
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/JokeResponse"
   /joke/search:
     get:
       description: ''
+      operationId: 'SearchJoke'
       parameters: []
       responses:
         '200':
-          description: OK
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/JokeResponse"
+components:
+  schemas:
+    Joke:
+      type: object
+      required:
+      - _id
+      - punchline
+      - setup
+      - type
+      properties:
+        _id:
+          type: string
+        type:
+          type: string
+        setup:
+          type: string
+        punchline:
+          type: string
+    JokeResponse:
+      type: object
+      properties:
+        sucess:
+          type: boolean
+        body:
+          type: array
+          items:
+            $ref: '#/components/schemas/Joke'
