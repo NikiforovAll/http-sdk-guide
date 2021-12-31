@@ -1,4 +1,6 @@
-namespace ManualApiClient;
+namespace DeclarativeApiClient;
+
+using Refit;
 
 public static class DadJokesApiClientFactory
 {
@@ -7,13 +9,12 @@ public static class DadJokesApiClientFactory
         string host,
         string apiKey)
     {
-        httpClient ??= new HttpClient();
-
         httpClient.BaseAddress = new Uri(host);
 
-        ConfigureHttpClient(httpClient, host, apiKey);
+        ConfigureHttpClient(
+            httpClient, httpClient.BaseAddress.Host, apiKey);
 
-        return new DadJokesApiClient(httpClient);
+        return RestService.For<IDadJokesApiClient>(httpClient);
     }
 
     public static IDadJokesApiClient Create(string host, string apiKey) =>

@@ -3,7 +3,6 @@ namespace ManualApiClient;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Flurl;
-using ManualApiClient.Constants;
 using ManualApiClient.Models;
 
 /// <inheritdoc/>

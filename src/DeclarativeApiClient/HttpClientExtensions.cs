@@ -1,6 +1,6 @@
-namespace ManualApiClient;
+namespace DeclarativeApiClient;
 
-using ManualApiClient.Constants;
+using DeclarativeApiClient.Constants;
 
 public static class HttpClientExtensions
 {

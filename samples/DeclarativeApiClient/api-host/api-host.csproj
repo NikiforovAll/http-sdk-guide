@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>api_host</RootNamespace>
+  </PropertyGroup>
+
+	<PropertyGroup Label="dotnet-example">
+		<ExampleTitle>refit.api-host</ExampleTitle>
+		<ExampleDescription>MinimalAPI + IHttpClientFactory + Refit ([yellow]Refit[/])</ExampleDescription>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\DeclarativeApiClient\DeclarativeApiClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="serilog.aspnetcore" Version="4.1.0" />
+  </ItemGroup>
+ 
+</Project>

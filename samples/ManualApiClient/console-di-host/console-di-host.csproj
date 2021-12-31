@@ -17,4 +17,9 @@
     <PackageReference Include="Serilog.Sinks.SpectreConsole" Version="0.1.1" />
   </ItemGroup>
 
+  <PropertyGroup Label="dotnet-example">
+		<ExampleTitle>httpclient.console-di-host</ExampleTitle>
+		<ExampleDescription>Console + IHttpClientFactory + HttpClient ([red]HttpClient[/])</ExampleDescription>
+	</PropertyGroup>
+
 </Project>

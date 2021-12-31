@@ -11,4 +11,9 @@
     <ProjectReference Include="..\..\..\src\ManualApiClient\ManualApiClient.csproj" />
   </ItemGroup>
 
+  <PropertyGroup Label="dotnet-example">
+		<ExampleTitle>httpclient.api-host</ExampleTitle>
+		<ExampleDescription>MinimalAPI + IHttpClientFactory + HttpClient ([red]HttpClient[/])</ExampleDescription>
+	</PropertyGroup>
+
 </Project>

@@ -12,4 +12,9 @@
     <ProjectReference Include="..\..\..\src\ManualApiClient\ManualApiClient.csproj" />
   </ItemGroup>
 
+  <PropertyGroup Label="dotnet-example">
+		<ExampleTitle>httpclient.console-host</ExampleTitle>
+		<ExampleDescription>Console + HttpClient ([red]HttpClient[/])</ExampleDescription>
+	</PropertyGroup>
+
 </Project>

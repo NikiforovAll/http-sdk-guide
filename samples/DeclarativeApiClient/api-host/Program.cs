@@ -1,7 +1,14 @@
-using ManualApiClient;
+using DeclarativeApiClient;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
+
+builder.Host.UseSerilog((ctx, cfg) => cfg.WriteTo.Console());
 var services = builder.Services;
+
 var configuration = builder.Configuration;
 
 services.AddPokemonClient(httpClient =>
@@ -13,6 +20,11 @@ services.AddPokemonClient(httpClient =>
 
 var app = builder.Build();
 
-app.MapGet("/", async (IDadJokesApiClient client) => await client.GetRandomJokeAsync());
+app.MapGet("/", async (IDadJokesApiClient client) =>
+{
+    var jokeResponse = await client.GetRandomJokeAsync();
+
+    return jokeResponse.Body.First();
+});
 
 app.Run();

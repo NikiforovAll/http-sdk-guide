@@ -1,0 +1,29 @@
+openapi: '3.0.2'
+info:
+  title: Dad Jokes API
+  version: '1.0'
+servers:
+  - url: https://dad-jokes.p.rapidapi.com
+paths:
+  /joke:
+    get:
+      description: ''
+      parameters: [
+      ]
+      responses:
+        '200':
+          description: OK
+  /random/joke:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /joke/search:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
