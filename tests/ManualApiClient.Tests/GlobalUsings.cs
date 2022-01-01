@@ -10,6 +10,7 @@ global using Xunit;
 global using System.Net;
 global using Moq;
 global using Moq.Protected;
-
+global using AutoFixture.Xunit2;
+global using FluentAssertions;
 
 global using static ManualApiClient.Tests.TestHarness;

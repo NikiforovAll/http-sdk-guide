@@ -1,18 +1,18 @@
 namespace ManualApiClient.Tests;
 
-using AutoFixture.Xunit2;
-using FluentAssertions;
 using ManualApiClient.Models;
 
 public class DadJokesApiClientTests
 {
     [Theory]
     [AutoData]
-    public async Task SearchAsync_Returned(JokeSearchResponse response, string term)
+    public async Task SearchAsync_Returned(
+        JokeSearchResponse response, string term, Uri host, string apiKey)
     {
         // Arrange
-        var httpClient = CreateHttpClientWithResult(response);
-        var sut = new DadJokesApiClient(httpClient);
+        var primaryHandler = CreateMessageHandlerWithResult(response);
+        var httpClient = new HttpClient(primaryHandler.Object);
+        var sut = DadJokesApiClientFactory.Create(httpClient, host.ToString(), apiKey);
 
         // Act
         var result = await sut.SearchAsync(term);
@@ -20,6 +20,11 @@ public class DadJokesApiClientTests
         // Assert
         result.Success.Should().Be(response.Success);
         result.Should().BeEquivalentTo(response);
+        primaryHandler.Protected().Verify("SendAsync",
+            Times.Once(),
+            ItExpr.Is<HttpRequestMessage>(
+                m => m.Headers.Accept.Select(h => h.MediaType).Contains("application/json")),
+            ItExpr.IsAny<CancellationToken>());
     }
 
     [Theory]
