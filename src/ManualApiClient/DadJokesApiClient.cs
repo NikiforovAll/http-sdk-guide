@@ -30,7 +30,7 @@ public class DadJokesApiClient : IDadJokesApiClient
         var jokes = await this.httpClient.GetFromJsonAsync<JokeSearchResponse>(
             ApiUrlConstants.GetRandomJoke, cancellationToken);
 
-        if (jokes is null or { Body.Count: 0 })
+        if (jokes is null or { Body.Count: 0 } or { Success: false })
         {
             throw new InvalidOperationException("This API is no joke.");
         }
