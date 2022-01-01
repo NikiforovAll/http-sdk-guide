@@ -1,4 +1,5 @@
 using ManualApiClient;
+using ManualApiClient.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;

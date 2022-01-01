@@ -1,4 +1,4 @@
-namespace ManualApiClient;
+namespace ManualApiClient.Constants;
 
 public static class ApiUrlConstants
 {

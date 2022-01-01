@@ -1,5 +1,5 @@
-using HeaderPropagation;
 using ManualApiClient;
+using ManualApiClient.Extensions;
 using ManualApiClient.Models;
 using Serilog;
 

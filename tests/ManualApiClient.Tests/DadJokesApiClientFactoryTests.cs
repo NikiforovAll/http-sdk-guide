@@ -1,4 +1,4 @@
-namespace ManualApiClient;
+namespace ManualApiClient.Tests;
 
 using ManualApiClient.Models;
 

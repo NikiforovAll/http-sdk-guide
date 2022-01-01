@@ -1,5 +1,7 @@
 namespace ManualApiClient;
 
+using ManualApiClient.Extensions;
+
 public static class DadJokesApiClientFactory
 {
     public static IDadJokesApiClient Create(

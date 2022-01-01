@@ -1,4 +1,4 @@
-namespace ManualApiClient;
+namespace ManualApiClient.Extensions;
 
 using Microsoft.Extensions.DependencyInjection;
 

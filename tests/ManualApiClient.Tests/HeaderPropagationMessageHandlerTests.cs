@@ -1,6 +1,6 @@
 namespace ManualApiClient.Tests;
 
-using HeaderPropagation;
+using ManualApiClient.Extensions;
 using ManualApiClient.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging.Abstractions;

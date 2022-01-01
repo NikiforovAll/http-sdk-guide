@@ -1,4 +1,5 @@
 using ManualApiClient;
+using ManualApiClient.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;

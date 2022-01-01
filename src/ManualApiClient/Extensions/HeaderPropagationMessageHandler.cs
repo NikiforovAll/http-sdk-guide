@@ -1,4 +1,4 @@
-namespace HeaderPropagation;
+namespace ManualApiClient.Extensions;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
