@@ -1,4 +1,5 @@
 using DeclarativeApiClient;
+using DeclarativeApiClient.Models;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +21,7 @@ services.AddDadJokesApiClient(httpClient =>
 
 var app = builder.Build();
 
-app.MapGet("/", async (IDadJokesApiClient client) =>
+app.MapGet("/", async Task<Joke> (IDadJokesApiClient client) =>
 {
     var jokeResponse = await client.GetRandomJokeAsync();
 

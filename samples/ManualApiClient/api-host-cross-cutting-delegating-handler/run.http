@@ -1,2 +1,2 @@
 GET https://localhost:5001/
-x-correlation-id: "1234"
+X-Correlation-Id: "1234"

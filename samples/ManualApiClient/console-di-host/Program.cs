@@ -29,14 +29,13 @@ var joke = await client.GetRandomJokeAsync();
 
 logger.Information($"{joke.Setup} {joke.Punchline}");
 
-
 static Serilog.ILogger ConfigureLogger()
 {
     Log.Logger = new LoggerConfiguration()
         .MinimumLevel.Verbose()
         .Enrich.FromLogContext()
         .WriteTo.SpectreConsole(
-            "[{Level:u4}] {SourceContext} {Message:lj}{NewLine}{Exception}",
+            "[{Level:u4}] {SourceContext}[{EventId}] {Message:lj}{NewLine}{Exception}",
             minLevel: LogEventLevel.Information)
         .CreateLogger();
 

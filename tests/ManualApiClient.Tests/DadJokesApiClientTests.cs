@@ -61,6 +61,4 @@ public class DadJokesApiClientTests
         await FluentActions.Invoking(() => sut.GetRandomJokeAsync())
             .Should().ThrowAsync<InvalidOperationException>();
     }
-
-
 }
