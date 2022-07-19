@@ -1,6 +1,7 @@
 using CrossCuttingPolly;
 using ManualApiClient;
 using ManualApiClient.Extensions;
+using Polly;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,13 @@ services.AddDadJokesApiClient(httpClient =>
     httpClient.AddDadJokesHeaders(host, configuration["DADJOKES_TOKEN"]);
 })
     .AddRandomLatencyIssues(TimeSpan.FromSeconds(3), injectionRate: 0.8, configuration)
-    .AddHttpMessageHandler<TimeoutThrowingDelegatingHandler>();
+    .AddHttpMessageHandler<TimeoutThrowingDelegatingHandler>()
+    .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
+    {
+        TimeSpan.FromSeconds(1),
+        TimeSpan.FromSeconds(5),
+        TimeSpan.FromSeconds(10)
+    }));
 
 var app = builder.Build();
 
